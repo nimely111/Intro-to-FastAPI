@@ -123,7 +123,7 @@ def update_item(item_id: int, item: UpdateItem):
 
 # using the delete method to remove items
 @app.delete("/delete-item")
-def delete_item(item_id: int = Query(..., description="The Id of the item to delete", gt=0)):
+def delete_item(item_id: int = Query(..., description="The ID of the item to delete", gt=0)):
    if item_id not in inventory:
         raise HTTPException(status_code=404, detail="Item ID does not exist")
    del inventory[item_id]
