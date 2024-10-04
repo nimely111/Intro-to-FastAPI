@@ -26,38 +26,42 @@ app = FastAPI()
 
 # path/query endpoint parameters
 
-# inventory= {
-#     1:{
-#         "name": "Milk",
-#         "price": 3.99,
-#         "brand": "Nido"
-#     },
-#     2:{
-#         "name": "T-Shirt",
-#         "price": 30.89,
-#         "brand": "Adidas"
-#     },
-#     3:{
-#         "name": "Sneaker",
-#         "price": 13.59,
-#         "brand": "Nike"
-#     }
-# }
+inventory= {
+    1:{
+        "ID": 1,
+        "name": "Milk",
+        "price": 3.99,
+        "brand": "Nido"
+    },
+    2:{
+        "ID": 2,
+        "name": "T-Shirt",
+        "price": 30.89,
+        "brand": "Adidas"
+    },
+    3:{
+        "ID": 3,
+        "name": "Sneaker",
+        "price": 13.59,
+        "brand": "Nike"
+    }
+}
 
-inventory= {}
+# inventory= {}
 
 
-# using the path and multiple path parameter as well as type hint
-# @app.get("/get-item/{item_id}/{name}")
-# def get_item(item_id: int, name: str = None):
-#     return inventory[item_id]
+# using the single and multiple path parameter as well as type hint
+@app.get("/get-item/{item_id}/{name}")
+async def get_item(item_id: int, name: str = None):
+    return inventory[item_id]
+
 # http://127.0.0.1:8000/get-item/1/name=Milk
 # single parameter http://127.0.0.1:8000/get-item/1
   
 # adding more details to an item using the path function or path parameter 
 # and adding constraints to the description
 @app.get("/get-item-details/{item_id}")
-def get_item_details(item_id: int = Path(description="The ID of the item you'd like to view.", gt=0, lt=3)):
+def get_item_details(item_id: int = Path(info="The ID of the item you'd like to view.", gt=0, lt=3)):
     return inventory[item_id]
 
 # # query parameters is something that comes 
@@ -67,7 +71,7 @@ def get_item_by_brand(name: str, brand: str):
     for item_id in inventory:
         if inventory[item_id]["brand"] == brand:
             return inventory[item_id]
-    return {"Data": "Not found"}
+    raise HTTPException(status_code=404, detail="Item brand not found. please verify item brand.")
 
 # with in the query parameter we have a require field. if we want to be optional, we can set the variable type to None or we can import the Optional package from the typing module. this method is advisable from the fastapi docs as well as giving a better auto completion http://127.0.0.1:8000/get-by-brand?brand=Nido&name=Milk
 
