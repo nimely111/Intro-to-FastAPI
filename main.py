@@ -26,28 +26,28 @@ app = FastAPI()
 
 # path/query endpoint parameters
 
-inventory= {
-    1:{
-        "ID": 1,
-        "name": "Milk",
-        "price": 3.99,
-        "brand": "Nido"
-    },
-    2:{
-        "ID": 2,
-        "name": "T-Shirt",
-        "price": 30.89,
-        "brand": "Adidas"
-    },
-    3:{
-        "ID": 3,
-        "name": "Sneaker",
-        "price": 13.59,
-        "brand": "Nike"
-    }
-}
+# inventory= {
+#     1:{
+#         "ID": 1,
+#         "name": "Milk",
+#         "price": 3.99,
+#         "brand": "Nido"
+#     },
+#     2:{
+#         "ID": 2,
+#         "name": "T-Shirt",
+#         "price": 30.89,
+#         "brand": "Adidas"
+#     },
+#     3:{
+#         "ID": 3,
+#         "name": "Sneaker",
+#         "price": 13.59,
+#         "brand": "Nike"
+#     }
+# }
 
-# inventory= {}
+inventory= {}
 
 
 # using the single and multiple path parameter as well as type hint
@@ -107,7 +107,7 @@ def create_item(item_id: int, item: Item):
 
 
 # using the put method to update items
-@app.put("/update-item/{item_id}")
+@app.put("/update-item/{item_id}") 
 def update_item(item_id: int, item: UpdateItem):
      if item_id not in inventory:
             raise HTTPException(status_code=404, detail="Item ID does not exist")
@@ -136,3 +136,9 @@ def delete_item(item_id: int = Query(..., description="The ID of the item to del
 
 
 # return status codes and error responses from these endpoints
+
+
+
+@app.get("/items/{item_id}/{name}")
+def fetch_items(item_id: int, name: str):
+    return inventory[item_id]
