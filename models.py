@@ -11,4 +11,5 @@ class Todo(BaseModel):
 class UpdateTodo(BaseModel):
      id: int
      item: str
-     completed: Optional[bool] = None
+    #  completed: Optional[bool] = None
+     completed: bool | None = None
