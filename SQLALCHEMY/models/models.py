@@ -6,7 +6,7 @@ class Student(Base):
     __tablename__ = 'students'
     id = Column(Integer, Sequence('student_id_seq'), primary_key=True)
     firstname = Column(String(50))
-    firstname = Column(String(50))
+    lastname = Column(String(50))
     email = Column(String(50))
     # establishing one to many relationship
     posts = relationship('Post', back_populates = 'student')
