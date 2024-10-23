@@ -1,5 +1,15 @@
 from db.db_setup import engine, session, Base  
-from models.models import Student, Post, student2, student3, student4, post1, post2, post3, post4
+from models.models import (
+    Student, 
+    Post, 
+    student2, 
+    student3, 
+    student4, 
+    post1, 
+    post2, 
+    post3, 
+    post4
+)
 # add student table to the database
 Base.metadata.create_all(engine)
 
