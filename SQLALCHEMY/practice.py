@@ -1,26 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Sequence
 from db.db_setup import engine, session, Base  
 
-# create a student table
-class Student(Base):
-    __tablename__ = 'students'
-    id = Column(Integer, Sequence("student_id_seq"), primary_key=True)
-    firstname = Column(String(50))
-    lastname = Column(String(50))
-    email = Column(String(50))
-    # extablishing relationship
-    posts = relationship('Post', back_populates='student')
-
-
-class Post(Base):
-    __tablename__ = 'posts'
-    id = Column(Integer, primary_key=True)
-    title = Column(String(100))
-    content = Column(String)
-    student_id = Column(Integer, ForeignKey('students.id'))
-    # establishing one to many relationship for the posts tables
-    student = relationship('Student', back_populates='posts')
-
 # add student table to the database
 Base.metadata.create_all(engine)
 
