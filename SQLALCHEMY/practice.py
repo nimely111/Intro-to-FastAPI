@@ -1,4 +1,3 @@
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Sequence
 from db.db_setup import engine, session, Base  
 
 # add student table to the database
