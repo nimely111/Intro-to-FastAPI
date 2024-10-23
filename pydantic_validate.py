@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, validator
+from pydantic import BaseModel, EmailStr, field_validator
 
 # pydantic BENEFITS
 # IDE TYPEHINTS
@@ -11,7 +11,7 @@ class User(BaseModel):
     account_id: int
 
 # adding custom validation
-    @validator("account_id", always=True)
+    @field_validator("account_id")
     def validate_account_id(cls, value):
         if value <=0:
             raise ValueError(f"account_id must be positive: {value}")
@@ -20,6 +20,6 @@ class User(BaseModel):
 
 # user = User(name='Sam', email='sam@example.com', account_id=1234)
 # print(user.name)
-user = User(name='Sam', email='sam@example.com', account_id=1234)
+user = User(name='Sam', email='sam@example.com', account_id=-1234)
 
-print(user.name)
+print(user)
