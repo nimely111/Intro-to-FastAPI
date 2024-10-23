@@ -1,5 +1,5 @@
 from db.db_setup import engine, session, Base  
-
+from models.models import Student, Post
 # add student table to the database
 Base.metadata.create_all(engine)
 
