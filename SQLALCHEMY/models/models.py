@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, Integer, Sequence, ForeignKey
+from sqlalchemy.orm import relationship
 from db.db_setup import Base
 
 class Student(Base):
