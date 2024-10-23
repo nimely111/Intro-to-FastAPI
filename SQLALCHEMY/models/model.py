@@ -8,3 +8,10 @@ class Student(Base):
     firstname = Column(String(50))
     email = Column(String(50))
 
+
+class Post(Base):
+    __tablename__ = 'posts'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(100))
+    Content = Column(String)
+    student_id = Column(Integer, ForeignKey('students.id'))
