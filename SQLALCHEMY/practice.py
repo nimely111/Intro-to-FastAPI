@@ -1,16 +1,5 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Sequence
-from sqlalchemy.orm import sessionmaker, declarative_base, relationship
-# database url string
-DATABASE_URL = 'sqlite:///stu-record.db'
-# create connection with the dataabase
-engine = create_engine(DATABASE_URL, echo=False)
-# set interaction with the database for user each session
-SessionLocal = sessionmaker(bind=engine)
-# create an instance from the SessionLocal object call db
-session = SessionLocal()
-# establishment of models
-Base = declarative_base()
-  
+from db.db_setup import engine, SessionLocal, Base  
 
 # create a student table
 class Student(Base):
