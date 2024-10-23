@@ -8,5 +8,6 @@ DATABASE_URL = 'sqlite:///stu-record.db'
 engine = create_engine(DATABASE_URL, echo=False)
 # database interaction
 SessionLocal = sessionmaker(bind=engine)
+session = SessionLocal()
 # skeleton of models
 Base = declarative_base()
