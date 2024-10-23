@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Sequence
-from db.db_setup import engine, SessionLocal, Base  
+from db.db_setup import engine, session, Base  
 
 # create a student table
 class Student(Base):
