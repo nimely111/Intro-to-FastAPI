@@ -16,7 +16,7 @@ class Post(Base):
     __tablename__ = 'posts'
     id = Column(Integer, primary_key=True)
     title = Column(String(100))
-    Content = Column(String)
+    content = Column(String)
     student_id = Column(Integer, ForeignKey('students.id'))
     # establishing one to many relationship
     student = relationship('Student', back_populates = 'posts')
