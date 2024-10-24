@@ -18,7 +18,7 @@ class User(BaseModel):
         return value
 
 # JSON SERIALIZATION
-# to cionvert a pydantic model to josn you can call the json method on the model instance
+# to convert a pydantic model to josn you can call the json method on the model instance
 # user_json_str = user.json()
 # print(user_json_str)
 
