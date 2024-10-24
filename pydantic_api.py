@@ -3,6 +3,12 @@ from pydantic import BaseModel, Field, field_validator, EmailStr
 from uuid import UUID, uuid4
 
 app = FastAPI()
+# TODOS:
+# 1. add field validation
+# 2. Dynamic UUID
+# Populate JSON to python objects
+# Custom Validation
+
 
 class UserCreate(BaseModel):
     email: EmailStr
