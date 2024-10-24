@@ -24,11 +24,11 @@ user = User(name='Sam', email='sam@example.com', account_id=1234)
 print(user)
 
 # JSON SERIALIZATION
-# to convert a pydantic model to josn you can call the json method on the model instance
+# to convert a pydantic model to json you can call the json method on the model instance
 # user_json_str = user.json()
 # print(user_json_str)
 
-user_json_str = user.json()
+user_json_str = user.model_dump_json()
 print('====================')
 print(user_json_str)
 
