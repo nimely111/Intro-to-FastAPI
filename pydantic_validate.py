@@ -31,9 +31,12 @@ print(user)
 user_json_str = user.model_dump_json()
 print('====================')
 print(user_json_str)
+print('====================')
 
 # convert from json to dict object
 # user_json_str = user.dict()
+user_json_str = user.dict()
+print(user_json_str)
 
 # convert json string back to pydantic model
 # user = User.parse_raw(json_str)
