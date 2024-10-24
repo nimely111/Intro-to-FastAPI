@@ -42,7 +42,7 @@ print('====================')
 
 # convert json string back to pydantic model
 # user = User.parse_raw(json_str)
-user = User.parse_raw(user_json_str)
+user = User.model_validate_json(user_json_str)
 print(user)
 # pydantic vs dataclass
 '''
