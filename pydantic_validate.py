@@ -16,10 +16,29 @@ class User(BaseModel):
         if value <=0:
             raise ValueError(f"account_id must be positive: {value}")
         return value
-            
 
+# JSON SERIALIZATION
+# to cionvert a pydantic model to josn you can call the json method on the model instance
+# user_json_str = user.json()
+# print(user_json_str)
+
+# convert from json to dict object
+# user_json_str = user.dict()
+
+# convert json string back to pydantic model
+# user = User.parse_raw(json_str)
+
+# pydantic vs dataclass
+'''
+                    pydantic vs dataclass
+    TYPE HINTS        ✅         ✅
+    Data Validation   ✅         ❌ 
+    Serialization     ✅         ⚠ 
+    Built in          ❌         ✅
+
+'''
+            
 # user = User(name='Sam', email='sam@example.com', account_id=1234)
 # print(user.name)
-user = User(name='Sam', email='sam@example.com', account_id=-1234)
-
+user = User(name='Sam', email='sam@example.com', account_id=1234)
 print(user)
