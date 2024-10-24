@@ -22,25 +22,28 @@ class User(BaseModel):
 # print(user.name)
 user = User(name='Sam', email='sam@example.com', account_id=1234)
 print(user)
+print('====================')
 
 # JSON SERIALIZATION
+# convert from json to dict object
+# user_json_str = user.dict()
+user_json_str = user.model_dump()
+print(user_json_str)
+print('====================')
+
 # to convert a pydantic model to json you can call the json method on the model instance
 # user_json_str = user.json()
 # print(user_json_str)
 
 user_json_str = user.model_dump_json()
-print('====================')
 print(user_json_str)
 print('====================')
 
-# convert from json to dict object
-# user_json_str = user.dict()
-user_json_str = user.model_dump()
-print(user_json_str)
 
 # convert json string back to pydantic model
 # user = User.parse_raw(json_str)
-
+user = User.parse_raw(user_json_str)
+print(user)
 # pydantic vs dataclass
 '''
                     pydantic vs dataclass
