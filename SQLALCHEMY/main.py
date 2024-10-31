@@ -47,9 +47,9 @@ session.add_all([user1, user2, post1, post2, post3])
 session.commit()
 
 # get all user's posts
-# posts_with_users = session.query(User, Post).join(User).all()
-# for user, post in posts_with_users:
-#     print(f"{post.title}: {user.name}")
+posts_with_users = session.query(User, Post).join(User).all()
+for user, post in posts_with_users:
+    print(f"{post.title}: {user.name}")
 
 # get all alice's posts
 alice = session.query(User).filter_by(name = 'Alice').first()

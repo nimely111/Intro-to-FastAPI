@@ -3,3 +3,4 @@ uvicorn
 pydantic
 sqlalchemy
 email-validator
+colorama-0.4.6

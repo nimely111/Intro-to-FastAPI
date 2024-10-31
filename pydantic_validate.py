@@ -25,10 +25,10 @@ print(user)
 print('====================')
 
 # JSON SERIALIZATION
-# convert from json to dict object
-# user_json_str = user.dict()
-user_json_str = user.model_dump()
-print(user_json_str)
+# convert from model to dictionary object
+# user_dict_obj = user.dict()
+user_dict_obj = user.model_dump()
+print(user_dict_obj)
 print('====================')
 
 # to convert a pydantic model to json you can call the json method on the model instance

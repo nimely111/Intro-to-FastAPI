@@ -1,7 +1,8 @@
 # Intro-to-FastAPI
-run fastapi
-uvicorn main:app --reload
-python main.py
-
 install dependencies in requirements.txt file
-pip install -r requirements.txt
+#pip install -r requirements.txt
+# To run fastapi
+# Activate virtual env [source venv/Scripts/activate]
+# cd to FastAPI directory
+# run: uvicorn main:app --reload
+# Or python main.py 
