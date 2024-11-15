@@ -1,0 +1,96 @@
+def generate_marketing_insights(prompt_summary, category, market_location, user_id):
+    # Unified comprehensive prompt for generating marketing insights, including personas, SEO keywords, and competitor analysis
+
+    # 1. **Combined Prompt for Persona Generation, SEO Keywords, and Competitor Analysis**
+    prompt_marketingplan = (
+        "Assuming this is a summary of my company: "
+        + prompt_summary
+        + " Please generate a detailed marketing plan for my "
+        + category
+        + " company. The plan should include the following sections:\n"
+
+        # **Persona Generation**
+        + "\n1. Target Personas: Define three detailed personas for marketing my company. For each persona, include:\n"
+        + " - Social Media Platforms: Choose from [Instagram, Facebook, LinkedIn, X, Pinterest].\n"
+        + " - Keywords: List key phrases and topics likely to attract this persona.\n"
+        + " - Psychographics: Describe their lifestyle, interests, values, and behaviors.\n"
+        + " - Preferred Communication Channel: Suggest the best approach (e.g., email, social media ads, influencer marketing).\n"
+        + " - Location: Specify common U.S. regions for this persona (e.g., West Coast, Midwest).\n"
+        + " - Marketing Strategy: Provide a brief recommendation on how to engage this persona.\n"
+        + " Here are example personas:\n"
+        + " <ul>"
+        + " <li><b>Persona 1:</b> Female, 18-25, annual income > $50,000."
+        + " Social Media Platforms: Instagram, TikTok."
+        + " Keywords: Beauty, Fashion, Lifestyle, Skincare."
+        + " Psychographics: Trend-focused, influenced by social media influencers."
+        + " Preferred Communication Channel: Instagram ads, influencer collaborations."
+        + " Location: Urban areas like New York City, Los Angeles, Miami."
+        + " Marketing Strategy: Use Instagram ads targeting fashion trends and beauty influencers.</li>"
+        + " <li><b>Persona 2:</b> Male, 30-40, annual income > $80,000."
+        + " Social Media Platforms: LinkedIn, Facebook."
+        + " Keywords: Business, Quality, Productivity, Professional Development."
+        + " Psychographics: Career-focused, prefers premium products."
+        + " Preferred Communication Channel: Email newsletters, LinkedIn ads."
+        + " Location: Tech hubs like San Francisco, Austin, Seattle."
+        + " Marketing Strategy: LinkedIn ads promoting professional products, personalized email offers.</li>"
+        + " <li><b>Persona 3:</b> Female, 45-55, annual income > $100,000."
+        + " Social Media Platforms: Facebook, Pinterest."
+        + " Keywords: Health, Wellness, Family, Lifestyle."
+        + " Psychographics: Family-oriented, values products that simplify life."
+        + " Preferred Communication Channel: Facebook groups, Pinterest ads."
+        + " Location: Suburban areas like Atlanta, Dallas, Phoenix."
+        + " Marketing Strategy: Facebook campaigns, Pinterest boards with lifestyle tips.</li>"
+        + " </ul>\n"
+
+        # **SEO Keyword Phrases Generation**
+        + "\n2. SEO & Keyword Strategy: Provide a list of effective SEO keywords for my "
+        + category
+        + " company. The list should include:\n"
+        + " - Short-tail Keywords: High-level, broad phrases (e.g., 'Beauty Products').\n"
+        + " - Long-tail Keywords: Specific, niche phrases (e.g., 'Best organic beauty products for sensitive skin').\n"
+        + " - Niche-specific Keywords: Targeted keywords catering to specific audiences (e.g., 'Luxury grooming kits for men in New York').\n"
+        + " Present the keywords in an HTML list format:\n"
+        + " <ul>"
+        + " <li>Short-tail Keyword: 'Beauty Products'</li>"
+        + " <li>Long-tail Keyword: 'Best organic beauty products for sensitive skin'</li>"
+        + " <li>Niche-specific Keyword: 'Luxury grooming kits for men in New York'</li>"
+        + " </ul>\n"
+
+        # **Competitor Analysis**
+        + "\n3. Competitor Analysis: Analyze key competitors within the "
+        + market_location
+        + " market for my "
+        + category
+        + " company. For each competitor, provide:\n"
+        + " - Competitor Name: Identify key market players.\n"
+        + " - Market Position: Describe their market standing (e.g., market leader, emerging competitor).\n"
+        + " - Strengths: Highlight major strengths (e.g., strong brand, customer loyalty).\n"
+        + " - Weaknesses: Point out potential weaknesses (e.g., limited product range).\n"
+        + " - Target Audience: Describe the typical customers they attract.\n"
+        + " - Marketing Strategy: Outline their marketing approach (e.g., social media campaigns, influencer partnerships).\n"
+        + " Here is an example format:\n"
+        + " <ul>"
+        + " <li><b>Competitor 1:</b> ABC Corp."
+        + " Market Position: Market leader in organic skincare."
+        + " Strengths: Strong online presence, high customer satisfaction."
+        + " Weaknesses: Premium pricing may deter budget customers."
+        + " Target Audience: Young professionals seeking organic skincare."
+        + " Marketing Strategy: Heavy use of Instagram influencers, targeted Facebook ads.</li>"
+        + " <li><b>Competitor 2:</b> XYZ Ltd."
+        + " Market Position: Emerging competitor in luxury grooming."
+        + " Strengths: Exclusive offerings, high-quality packaging."
+        + " Weaknesses: Limited distribution, low brand recognition."
+        + " Target Audience: High-income men aged 30-45."
+        + " Marketing Strategy: Collaborations with lifestyle bloggers, YouTube reviews.</li>"
+        + " </ul>\n"
+    )
+
+    # Generate the consolidated marketing insights
+    print("Generating Comprehensive Marketing Plan...")
+    marketing_insights = generate_text(prompt_marketingplan)
+    
+    # Print output for testing
+    print("\nGenerated Marketing Insights:")
+    print(marketing_insights)
+
+    return marketing_insights

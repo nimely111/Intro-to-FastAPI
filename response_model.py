@@ -4,13 +4,19 @@ from pydantic import BaseModel
 app = FastAPI()
 
 
-class Item(BaseException):
-    name: str 
-    description: str | None = None
-    price: float
-    tax: float | None = None
-    tags: list[str] = [] 
 
-@app.post("/items")
-async def create_items(item: Item):
-    return item
+
+
+
+
+# PART 13
+# class Item(BaseException):
+#     name: str 
+#     description: str | None = None
+#     price: float
+#     tax: float | None = None
+#     tags: list[str] = [] 
+
+# @app.post("/items")
+# async def create_items(item: Item):
+#     return item
